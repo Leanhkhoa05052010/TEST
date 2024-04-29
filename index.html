@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-image: url('test.png'); /* Đường dẫn ảnh mới */
+            background-image: url('file:///C:/Users/Tam/Documents/test.png'); /* Đường dẫn ảnh mới */
             background-repeat: no-repeat;
             background-size: cover;
             color: #fff;
@@ -137,6 +137,7 @@
         function changeHalf() {
             currentHalf = currentHalf === 1 ? 2 : 1; // Chuyển qua hiệp tiếp theo
             resetScores(); // Đặt lại điểm số
+            clearInterval(timer); // Dừng thời gian
             startTimer(remainingTime); // Bắt đầu lại đếm ngược từ đầu
         }
 
