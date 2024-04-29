@@ -64,6 +64,11 @@
             font-size: 48px;
             margin-top: 50px;
         }
+
+        .half-info {
+            font-size: 20px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -83,6 +88,7 @@
             <button onclick="changeHalf()">Chuyển hiệp</button>
         </div>
         <div class="timer" id="timer">02:00</div>
+        <div class="half-info" id="halfInfo">Hiệp 1</div>
     </div>
     <script>
         let teamAScore = 0;
@@ -139,6 +145,7 @@
             remainingTime = 120 * 1000; // Đặt lại thời gian mỗi khi chuyển hiệp
             clearInterval(timer); // Dừng thời gian
             startTimer(remainingTime); // Bắt đầu lại đếm ngược từ đầu
+            document.getElementById('halfInfo').innerText = currentHalf === 1 ? "Hiệp 1" : "Hiệp 2";
         }
 
         window.onload = function () {
