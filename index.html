@@ -1,4 +1,3 @@
-theme: AKL
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +80,7 @@ theme: AKL
         <div class="control-buttons">
             <button onclick="increaseScore('teamA')">⬅️</button>
             <button onclick="increaseScore('teamB')">➡️</button>
+            <button onclick="changeHalf()">Chuyển hiệp</button>
         </div>
         <div class="timer" id="timer">02:00</div>
     </div>
@@ -90,6 +90,7 @@ theme: AKL
         let isCounting = true; // Biến để theo dõi trạng thái của việc đếm ngược
         let timer; // Biến để lưu trữ interval
         let remainingTime = 120 * 1000; // Thời gian còn lại mặc định là 2 phút
+        let currentHalf = 1; // Biến để lưu trữ hiệp hiện tại
 
         function increaseScore(team) {
             if (team === 'teamA') {
@@ -131,6 +132,19 @@ theme: AKL
 
             runTimer();
             timer = setInterval(runTimer, 1000); // Gọi hàm runTimer mỗi giây
+        }
+
+        function changeHalf() {
+            currentHalf = currentHalf === 1 ? 2 : 1; // Chuyển qua hiệp tiếp theo
+            resetScores(); // Đặt lại điểm số
+            startTimer(remainingTime); // Bắt đầu lại đếm ngược từ đầu
+        }
+
+        function resetScores() {
+            teamAScore = 0;
+            teamBScore = 0;
+            document.getElementById('teamAScore').innerText = teamAScore;
+            document.getElementById('teamBScore').innerText = teamBScore;
         }
 
         window.onload = function () {
