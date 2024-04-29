@@ -108,17 +108,45 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Input tên đội */
+        .team-input {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .team-input input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Ô nhập nội dung VAR */
+        .var-input {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .var-input textarea {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            resize: none; /* Ngăn chặn người dùng điều chỉnh kích thước */
+        }
+
     </style>
 </head>
 <body>
     <div class="scoreboard">
         <h2 class="scoreboard-title">Tỉ số trận đấu</h2>
         <div class="team">
-            <span class="team-name">Đội A</span>
+            <span class="team-name" id="teamAName">Đội A</span>
             <span class="team-score" id="teamAScore">0</span>
         </div>
         <div class="team">
-            <span class="team-name">Đội B</span>
+            <span class="team-name" id="teamBName">Đội B</span>
             <span class="team-score" id="teamBScore">0</span>
         </div>
         <div class="control-buttons">
@@ -129,6 +157,18 @@
         </div>
         <div class="timer" id="timer">02:00</div>
         <div class="half-info" id="halfInfo">Hiệp 1</div>
+
+        <!-- Input tên đội -->
+        <div class="team-input">
+            <input type="text" id="teamAInput" placeholder="Nhập tên Đội A">
+            <br>
+            <input type="text" id="teamBInput" placeholder="Nhập tên Đội B">
+        </div>
+
+        <!-- Ô nhập nội dung VAR -->
+        <div class="var-input">
+            <textarea id="varContent" placeholder="Nhập nội dung kiểm tra VAR"></textarea>
+        </div>
     </div>
 
     <!-- Màn hình modal -->
@@ -137,7 +177,7 @@
             <span class="close" onclick="closeModal()">&times;</span> <!-- Nút đóng modal -->
             <h2>Check VAR</h2>
             <!-- Nội dung kiểm tra VAR ở đây -->
-            <p>VAR ĐANG KIỂM TRA</p>
+            <textarea id="varResult" disabled></textarea> <!-- Ô hiển thị kết quả VAR -->
         </div>
     </div>
 
