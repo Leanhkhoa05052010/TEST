@@ -136,16 +136,9 @@
 
         function changeHalf() {
             currentHalf = currentHalf === 1 ? 2 : 1; // Chuyển qua hiệp tiếp theo
-            resetScores(); // Đặt lại điểm số
+            remainingTime = 120 * 1000; // Đặt lại thời gian mỗi khi chuyển hiệp
             clearInterval(timer); // Dừng thời gian
             startTimer(remainingTime); // Bắt đầu lại đếm ngược từ đầu
-        }
-
-        function resetScores() {
-            teamAScore = 0;
-            teamBScore = 0;
-            document.getElementById('teamAScore').innerText = teamAScore;
-            document.getElementById('teamBScore').innerText = teamBScore;
         }
 
         window.onload = function () {
