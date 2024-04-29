@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-image: url('test.png'); /* Đường dẫn ảnh mới */
+            background-image: url('file:///C:/Users/Tam/Documents/test.png'); /* Đường dẫn ảnh mới */
             background-repeat: no-repeat;
             background-size: cover;
             color: #fff;
@@ -69,6 +69,43 @@
             font-size: 20px;
             margin-top: 10px;
         }
+
+        /* Màn hình modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Một lớp mờ đen */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -86,10 +123,22 @@
             <button onclick="increaseScore('teamA')">⬅️</button>
             <button onclick="increaseScore('teamB')">➡️</button>
             <button onclick="changeHalf()">Chuyển hiệp</button>
+            <button onclick="openModal()">Check VAR</button> <!-- Nút mở modal -->
         </div>
         <div class="timer" id="timer">02:00</div>
         <div class="half-info" id="halfInfo">Hiệp 1</div>
     </div>
+
+    <!-- Màn hình modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span> <!-- Nút đóng modal -->
+            <h2>Check VAR</h2>
+            <!-- Nội dung kiểm tra VAR ở đây -->
+            <p>VAR đã được kiểm tra và xác định.</p>
+        </div>
+    </div>
+
     <script>
         let teamAScore = 0;
         let teamBScore = 0;
@@ -163,6 +212,16 @@
                 }
             }
         });
+
+        // Mở modal
+        function openModal() {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        // Đóng modal
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
     </script>
 </body>
 </html>
