@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #000;
+            background-image: url('file:///C:/Users/Tam/Documents/test.png'); /* Đường dẫn ảnh mới */
+            background-repeat: no-repeat;
+            background-size: cover;
             color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -40,14 +42,22 @@
             font-size: 36px;
         }
 
-        button {
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .control-buttons button {
             background-color: #fff;
             color: #000;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .control-buttons button:last-child {
+            margin-right: 0;
         }
 
         .timer {
@@ -67,8 +77,10 @@
             <span class="team-name">Đội B</span>
             <span class="team-score" id="teamBScore">0</span>
         </div>
-        <button onclick="increaseScore('teamA')">Ghi bàn cho Đội A</button>
-        <button onclick="increaseScore('teamB')">Ghi bàn cho Đội B</button>
+        <div class="control-buttons">
+            <button onclick="increaseScore('teamA')">⬅️</button>
+            <button onclick="increaseScore('teamB')">➡️</button>
+        </div>
         <div class="timer" id="timer">02:00</div>
     </div>
     <script>
