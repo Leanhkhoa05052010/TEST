@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-image: url('test.png'); /* Đường dẫn ảnh mới */
+            background-image: url('file:///C:/Users/Tam/Documents/test.png'); /* Đường dẫn ảnh mới */
             background-repeat: no-repeat;
             background-size: cover;
             color: #fff;
@@ -84,7 +84,7 @@
         }
 
         .modal-content {
-            background-image: url('test.png'); /* Đường dẫn ảnh mới */
+            background-image: url('file:///C:/Users/Tam/Documents/test.png'); /* Đường dẫn ảnh mới */
             background-repeat: no-repeat;
             background-size: cover;
             margin: 15% auto;
@@ -159,7 +159,7 @@
         <div class="half-info" id="halfInfo">Hiệp 1</div>
 
         <!-- Input tên đội -->
-        <div class="team-input">
+        <div class="team-input" id="teamInputContainer">
             <input type="text" id="teamAInput" placeholder="Nhập tên Đội A">
             <br>
             <input type="text" id="teamBInput" placeholder="Nhập tên Đội B">
@@ -237,6 +237,18 @@
             clearInterval(timer); // Dừng thời gian
             startTimer(remainingTime); // Bắt đầu lại đếm ngược từ đầu
             document.getElementById('halfInfo').innerText = currentHalf === 1 ? "Hiệp 1" : "Hiệp 2";
+            updateTeamNames(); // Cập nhật tên đội
+        }
+
+        function updateTeamNames() {
+            // Lấy giá trị từ các ô nhập liệu và cập nhật tên đội
+            let teamAName = document.getElementById('teamAInput').value;
+            let teamBName = document.getElementById('teamBInput').value;
+            document.getElementById('teamAName').innerText = teamAName || "Đội A";
+            document.getElementById('teamBName').innerText = teamBName || "Đội B";
+
+            // Ẩn các ô nhập liệu sau khi đã điền tên đội
+            document.getElementById('teamInputContainer').style.display = "none";
         }
 
         window.onload = function () {
